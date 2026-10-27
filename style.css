@@ -1,0 +1,87 @@
+/* ---------- Colors and fonts (change them here only) ---------- */
+:root {
+  --olive: #2f3d1f;
+  --leaf: #6b8e3d;
+  --gold: #e0a526;
+  --sage: #eef1e6;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", Arial, sans-serif;
+  background: var(--sage);
+  color: var(--olive);
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
+
+/* Fluid text: grows and shrinks with the screen */
+h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+
+.wrap { width: min(92%, 1100px); margin: 0 auto; }
+
+/* ---------- Header: Flexbox ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.logo { font-family: "Fraunces", Georgia, serif; font-weight: 800; font-size: 1.6rem; }
+.links { display: flex; gap: 24px; }
+.links a { color: var(--olive); text-decoration: none; font-weight: 600; }
+.links a:hover { color: var(--leaf); }
+
+/* ---------- Hero: Flexbox ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 60px 0 80px;
+}
+.hero-text { flex: 1; }
+.hero-text p { font-size: 1.2rem; margin: 20px 0 30px; max-width: 460px; }
+.hero-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  font-size: 9rem;
+  background: linear-gradient(145deg, var(--leaf), var(--olive));
+  border-radius: 32px;
+}
+
+/* ---------- Features: Grid ---------- */
+.features { padding: 60px 0 80px; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.card { border: none; border-radius: 20px; padding: 28px; }
+.card .icon { font-size: 2.4rem; }
+.card h3 { font-size: 1.4rem; margin: 12px 0 8px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--olive);
+  color: var(--sage);
+  text-align: center;
+  padding: 28px 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }  /* tablet */
+}
+@media (max-width: 700px) {
+  .hero { flex-direction: column; text-align: center; padding-top: 30px; }
+  .hero-image { width: 100%; min-height: 240px; font-size: 6rem; }
+  .cards { grid-template-columns: 1fr; }            /* phone */
+  .nav { flex-direction: column; gap: 12px; }
+}
